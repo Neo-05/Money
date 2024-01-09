@@ -798,6 +798,44 @@
             "rid": "win"
           }
         }
+      },
+      "Money.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.2",
+          "Money.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Money.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Money.BLL.dll": {}
+        }
+      },
+      "Money.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.2",
+          "Tools": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Money.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Money.DAL.dll": {}
+        }
+      },
+      "Tools/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Tools.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tools.dll": {}
+        }
       }
     }
   },
@@ -2207,11 +2245,27 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Money.BLL/1.0.0": {
+      "type": "project",
+      "path": "../Money.BLL/Money.BLL.csproj",
+      "msbuildProject": "../Money.BLL/Money.BLL.csproj"
+    },
+    "Money.DAL/1.0.0": {
+      "type": "project",
+      "path": "../Money.DAL/Money.DAL.csproj",
+      "msbuildProject": "../Money.DAL/Money.DAL.csproj"
+    },
+    "Tools/1.0.0": {
+      "type": "project",
+      "path": "../Tools/Tools.csproj",
+      "msbuildProject": "../Tools/Tools.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.Data.SqlClient >= 5.1.2",
+      "Money.BLL >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -2250,7 +2304,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Student\\Desktop\\Mh\\_Money\\Money.BLL\\Money.BLL.csproj": {
+              "projectPath": "C:\\Users\\Student\\Desktop\\Mh\\_Money\\Money.BLL\\Money.BLL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
