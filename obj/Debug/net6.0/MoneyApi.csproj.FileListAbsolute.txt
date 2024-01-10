@@ -70,3 +70,4 @@ C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Tools.dll
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Money.BLL.pdb
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Money.DAL.pdb
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Tools.pdb
+C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

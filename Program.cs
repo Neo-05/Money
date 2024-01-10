@@ -1,11 +1,44 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using Money.BLL.Interfaces;
 using Money.BLL.Services;
 using Money.DAL.Interfaces;
 using Money.DAL.Repositories;
+using MoneyApi.Models;
 using System.Data.Common;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Token JWT
+//Récupère les info de appsettings et stock ds la class JwtOptions
+JwtOptions options = builder.Configuration.GetSection("JwtOptions").Get<JwtOptions>();
+
+//Injecter le jwtoption
+builder.Services.AddSingleton(options);
+
+//Configuration de l'auth ds les services
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(
+        o =>
+        {
+            //chercher clé
+            byte[] sKey = Encoding.UTF8.GetBytes(options.SigningKey);
+
+            o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = options.Issuer,
+                ValidAudience = options.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(sKey)
+            };
+        }
+    );
+builder.Services.AddAuthorization();
 
 // Add services to the container.
 

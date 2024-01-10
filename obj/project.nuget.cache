@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xm6M1s6rATdhv7i9wMcirVDUeFPXFLYS8mG3MmNEhWLMHgtZ/lYncFlZGtb6QQLHNoNw+uFx4BR8I15QHrOChA==",
+  "dgSpecHash": "qnqxscnhRk0xIl6+F2rGNRu2PeNNGBeSG7M5dxlH57VJwapwOxzON4X9FogT8R0YGFFIKQdUxBFqX92UoOMFEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Student\\Desktop\\Mh\\_Money\\MoneyApi\\MoneyApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Student\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.23\\microsoft.aspnetcore.authentication.jwtbearer.6.0.23.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.2\\microsoft.data.sqlclient.5.1.2.nupkg.sha512",
