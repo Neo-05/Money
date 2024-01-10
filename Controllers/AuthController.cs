@@ -18,7 +18,7 @@ namespace MoneyApi.Controllers
         {
             _jwtOption = jwtoptions;
         }
-
+        
         [HttpPost]
         public IActionResult Login(LoginModel lm)
         {

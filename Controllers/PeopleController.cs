@@ -28,6 +28,8 @@ namespace MoneyApi.Controllers
         }
 
 
+
+
         [HttpGet("{peopleId}")]
         [ProducesResponseType(404, Type = typeof(string))]
         [ProducesResponseType(200, Type = typeof(PeopleDTO))]
@@ -48,6 +50,8 @@ namespace MoneyApi.Controllers
             PeopleDTO result = _PeopleService.Create(people.ToModel()).ToDTO();
             return CreatedAtAction(nameof(GetById), new { artistId = result.Id }, result);
         }
+
+
 
         [HttpDelete("{peopleId}")]
         [ProducesResponseType(204)]
