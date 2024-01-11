@@ -83,5 +83,30 @@ namespace MoneyApi.Controllers
 
             return updated ? NoContent() : NotFound();
         }
+
+
+        [HttpGet("expense/filters")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ExpenseDTO>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+
+        public IActionResult GetFilteredExpense([FromQuery]DateTime startDate, [FromQuery] DateTime endDate, [FromQuery] List<int> categoryIds)
+        {
+            try
+            {
+                IEnumerable<ExpenseDTO> result = _ExpenseService.GetFilteredExpenses(startDate, endDate, categoryIds).Select(e => e.ToDTO());
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return BadRequest("Echec");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"{ex.Message}");
+            }
+        }
     }
 }
