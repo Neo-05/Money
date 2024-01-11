@@ -54,10 +54,16 @@ builder.Services.AddTransient<DbConnection>(service =>
 //Services
 builder.Services.AddScoped<IPeopleService, PeopleService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IExpenseService, ExpenseService>();
+builder.Services.AddScoped<IIncomeService, IncomeService>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 //Repo
 builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IIncomeRepository, IncomeRepository>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
 
 builder.Services.AddControllers();

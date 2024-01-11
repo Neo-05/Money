@@ -43,7 +43,7 @@ namespace MoneyApi.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(PeopleDTO))]
+        [ProducesResponseType(201, Type = typeof(CategoryDTO))]
         public IActionResult Create([FromBody] CategoryDataDTO category)
         {
             CategoryDTO result = _CategoryService.Create(category.ToModel()).ToDTO();
