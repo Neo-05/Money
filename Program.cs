@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Newtonsoft;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using Money.BLL.Interfaces;
@@ -52,10 +53,11 @@ builder.Services.AddTransient<DbConnection>(service =>
 
 //Services
 builder.Services.AddScoped<IPeopleService, PeopleService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 //Repo
 builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
 builder.Services.AddControllers();

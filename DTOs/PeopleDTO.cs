@@ -4,14 +4,13 @@ namespace MoneyApi.DTOs
 {
     public class PeopleDTO
     {
-        [Required]
+        [Required] //DataAnnotations
         public int Id { get; set; }
         [Required]
         public string Pseudo { get; set; } = string.Empty;
         [Required]
         public string Email { get; set; } = string.Empty;
         [Required]
-        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
         [Required]
         public string HashPwd { get; set; } = string.Empty;
@@ -27,7 +26,6 @@ namespace MoneyApi.DTOs
         [Required]
         public string Email { get; set; } = string.Empty;
         [Required]
-        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
         [Required]
         public string HashPwd { get; set; } = string.Empty;

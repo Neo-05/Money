@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Money.BLL.Interfaces;
-using Money.DAL.Interfaces;
 using Money.BLL.Exceptions;
 using MoneyApi.DTOs;
 using MoneyApi.Mappers;
@@ -18,6 +17,7 @@ namespace MoneyApi.Controllers
         {
             _PeopleService = peopleService;
         }
+
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<PeopleDTO>))]
@@ -48,7 +48,7 @@ namespace MoneyApi.Controllers
         public IActionResult Create([FromBody] PeopleDataDTO people)
         {
             PeopleDTO result = _PeopleService.Create(people.ToModel()).ToDTO();
-            return CreatedAtAction(nameof(GetById), new { artistId = result.Id }, result);
+            return CreatedAtAction(nameof(GetById), new { peopleId = result.Id }, result);
         }
 
 
@@ -70,7 +70,7 @@ namespace MoneyApi.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("{peopleId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404, Type = typeof(string))]
         public IActionResult Update([FromRoute] int peopleId, [FromBody] PeopleDataDTO people)
@@ -82,10 +82,10 @@ namespace MoneyApi.Controllers
             }
             catch (NotFoundException nFE)
             {
-                return NotFound(nFE);
+                return NotFound(nFE.Message);
             }
 
-            return updated ? NoContent() : NotFound("People not found");
+            return updated ? NoContent() : NotFound();
         }
     }
 }
