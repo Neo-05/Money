@@ -72,3 +72,4 @@ C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Money.DAL.pdb
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Tools.pdb
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Student\Desktop\Mh\_Money\MoneyApi\bin\Debug\net6.0\BCrypt.Net-Next.dll

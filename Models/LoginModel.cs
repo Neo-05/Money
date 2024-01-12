@@ -8,7 +8,7 @@ namespace MoneyApi.Models
         private string _password;
 
         public string Pseudo { get => _pseudo; set => _pseudo = value; }
-        
+
         public string Password { get => _password; set => _password = value; }
     }
 }

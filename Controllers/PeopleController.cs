@@ -27,9 +27,6 @@ namespace MoneyApi.Controllers
             return Ok(result);
         }
 
-
-
-
         [HttpGet("{peopleId}")]
         [ProducesResponseType(404, Type = typeof(string))]
         [ProducesResponseType(200, Type = typeof(PeopleDTO))]
@@ -54,7 +51,7 @@ namespace MoneyApi.Controllers
 
 
         [HttpDelete("{peopleId}")]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(404, Type = typeof(string))]
         public IActionResult Delete([FromRoute] int peopleId)
         {

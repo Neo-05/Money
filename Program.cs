@@ -57,6 +57,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
 builder.Services.AddScoped<IIncomeService, IncomeService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<AuthService>();
 
 //Repo
 builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();

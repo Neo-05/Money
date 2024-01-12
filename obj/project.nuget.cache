@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "gpM1d1g3SBWmzvjoBZehmxyFICNBfGnlQBNUXLM3T5HvdRxE1DWndms1SqacSt5aobK+9rZazinFPSzRZn2CmQ==",
+  "dgSpecHash": "XFkjWQhKzp7kViJca7QJ81i7GMa39mQu2me16Thllxvlw2nXkyW5mbvZliKFgwh/QhqVNCmwCXGmeCqUhvu0BA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Student\\Desktop\\Mh\\_Money\\MoneyApi\\MoneyApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Student\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.23\\microsoft.aspnetcore.authentication.jwtbearer.6.0.23.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -20,7 +20,6 @@ namespace MoneyApi.DTOs
     //Pas besoin de l'id car créé dans la db
     public class PeopleDataDTO
     {
-
         [Required] //oblige à valider les données entrées
         public string Pseudo { get; set; } = string.Empty;
         [Required]
@@ -30,4 +29,32 @@ namespace MoneyApi.DTOs
         [Required]
         public string HashPwd { get; set; } = string.Empty;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //public class PeopleLogin
+    //{
+    //    private string _pseudo;
+    //    private string _password;
+
+    //    public string Pseudo { get => _pseudo; set => _pseudo = value; }
+
+    //    public string Password { get => _password; set => _password = value; }
+    //}
 }
