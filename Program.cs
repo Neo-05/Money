@@ -16,6 +16,18 @@ var builder = WebApplication.CreateBuilder(args);
 //Récupère les info de appsettings et stock ds la class JwtOptions
 JwtOptions options = builder.Configuration.GetSection("JwtOptions").Get<JwtOptions>();
 
+// Configuration CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Money",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200") //front
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
 //Injecter le jwtoption
 builder.Services.AddSingleton(options);
 
@@ -51,12 +63,17 @@ builder.Services.AddTransient<DbConnection>(service =>
     return new SqlConnection(connectionString);
 });
 
+//Sert à enregistrer des services dans le système d'injection de dépendance
+//type élé injecté et son implémentation concrète
+//permet de fournir une implémentation concrète lorsqu'une instance d'une inter est crée
 //Services
 builder.Services.AddScoped<IPeopleService, PeopleService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
 builder.Services.AddScoped<IIncomeService, IncomeService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
+
+//Enregistre le AuthService dans le système d'injection de dépendance
 builder.Services.AddScoped<AuthService>();
 
 //Repo
@@ -87,6 +104,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("Money");
 
 app.UseHttpsRedirection();
 
