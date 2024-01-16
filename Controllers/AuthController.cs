@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Money.BLL.Services;
+using Money.DAL.Entities;
 using MoneyApi.DTOs;
 using MoneyApi.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -38,16 +39,25 @@ namespace MoneyApi.Controllers
                 return new BadRequestObjectResult(ModelState);
             }
 
-            if (_AuthService.Login(lm.Pseudo, lm.Password))
+            int peopleId = _AuthService.Login(lm.Pseudo, lm.Password);
+
+            if (peopleId != 0)
             {
-                //Issuer
                 byte[] skey = Encoding.UTF8.GetBytes(_jwtOption.SigningKey);
                 SymmetricSecurityKey cle = new SymmetricSecurityKey(skey);
+
+                //Claims
+                Claim idPeople = new Claim("id", peopleId.ToString());
+                List<Claim> mesClaims = new List<Claim>
+                {
+                    idPeople
+                };
 
                 //Token
                 JwtSecurityToken Token = new JwtSecurityToken(
                     issuer: _jwtOption.Issuer,
                     audience: _jwtOption.Audience,
+                    claims: mesClaims,
                     expires: DateTime.Now.AddSeconds(_jwtOption.Expiration),
                     signingCredentials: new SigningCredentials(cle, SecurityAlgorithms.HmacSha256));
 

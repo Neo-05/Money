@@ -32,7 +32,6 @@ namespace MoneyApi.DTOs
         public DateTime Date { get; set; }
         [Required]
         public int Amount { get; set; }
-        [Required]
         public string Currency { get; set; } = string.Empty;
         [Required]
         public int PeopleId { get; set; }

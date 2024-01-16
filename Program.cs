@@ -55,7 +55,6 @@ builder.Services.AddAuthorization();
 
 // Add services to the container.
 
-//A REVOIR
 //DbConnection
 builder.Services.AddTransient<DbConnection>(service =>
 {
