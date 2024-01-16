@@ -9,6 +9,7 @@ using Money.DAL.Repositories;
 using MoneyApi.Models;
 using System.Data.Common;
 using System.Text;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,6 +53,29 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         }
     );
 builder.Services.AddAuthorization();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("Auth Token", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Description = "Ajouter le JWT necessaire à l'autentification"
+    });
+
+    // Ajout du "verrou" sur toutes les routes de l'API pour exploiter le JWT
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Auth Token" }
+            },
+            new string[] {}
+        }
+    });
+});
 
 // Add services to the container.
 

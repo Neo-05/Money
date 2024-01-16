@@ -89,11 +89,11 @@ namespace MoneyApi.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<ExpenseDTO>))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public IActionResult GetFilteredExpense([FromQuery]DateTime startDate, [FromQuery] DateTime endDate, [FromQuery] List<int> categoryIds)
+        public IActionResult GetFilteredExpense([FromQuery]DateTime startDate, [FromQuery] DateTime endDate, [FromQuery] int categoryId, [FromQuery] int peopleId)
         {
             try
             {
-                IEnumerable<ExpenseDTO> result = _ExpenseService.GetFilteredExpenses(startDate, endDate, categoryIds).Select(e => e.ToDTO());
+                IEnumerable<ExpenseDTO> result = _ExpenseService.GetFilteredExpenses(startDate, endDate, categoryId, peopleId).Select(e => e.ToDTO());
                 if (result != null)
                 {
                     return Ok(result);
