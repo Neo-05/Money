@@ -3,6 +3,7 @@ using Money.BLL.Interfaces;
 using Money.BLL.Exceptions;
 using MoneyApi.DTOs;
 using MoneyApi.Mappers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MoneyApi.Controllers
 {
@@ -16,6 +17,7 @@ namespace MoneyApi.Controllers
             _ExpenseService = expenseService;
         }
 
+
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<ExpenseDTO>))]
         public IActionResult GetAll()
@@ -26,9 +28,10 @@ namespace MoneyApi.Controllers
 
 
 
+
         [HttpGet("{expenseId}")]
-        [ProducesResponseType(404, Type = typeof(string))]
         [ProducesResponseType(200, Type = typeof(ExpenseDTO))]
+        [ProducesResponseType(404, Type = typeof(string))]
         public IActionResult GetById([FromRoute] int expenseId)
         {
             ExpenseDTO? expenseDTO = _ExpenseService.GetById(expenseId)?.ToDTO();
@@ -38,6 +41,10 @@ namespace MoneyApi.Controllers
             }
             return Ok(expenseDTO);
         }
+
+
+
+
 
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(ExpenseDTO))]
@@ -50,7 +57,7 @@ namespace MoneyApi.Controllers
 
 
         [HttpDelete("{expenseId}")]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(404, Type = typeof(string))]
         public IActionResult Delete([FromRoute] int expenseId)
         {
@@ -58,7 +65,7 @@ namespace MoneyApi.Controllers
 
             if (deleted)
             {
-                return Ok();
+                return Ok("Suppression réussie");
             }
             else
             {
@@ -80,12 +87,11 @@ namespace MoneyApi.Controllers
             {
                 return NotFound(nFE.Message);
             }
-
             return updated ? NoContent() : NotFound();
         }
 
 
-        [HttpGet("expense/filters")]
+        [HttpGet("filters")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<ExpenseDTO>))]
         [ProducesResponseType(400, Type = typeof(string))]
 
@@ -106,6 +112,31 @@ namespace MoneyApi.Controllers
             catch (Exception ex)
             {
                 return BadRequest($"{ex.Message}");
+            }
+        }
+
+        [HttpGet("filtersId")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ExpenseDTO>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+
+        public IActionResult getAllIdPeople([FromQuery] int peopleId)
+        {
+
+            try
+            {
+                IEnumerable<ExpenseDTO> result = _ExpenseService.GetAllIdPeople(peopleId).Select(e => e.ToDTO());
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return BadRequest("Echec");
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest("erreur");
             }
         }
     }

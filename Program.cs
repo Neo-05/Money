@@ -54,6 +54,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     );
 builder.Services.AddAuthorization();
 
+//sécurité
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("Auth Token", new OpenApiSecurityScheme
